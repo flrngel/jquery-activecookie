@@ -1,0 +1,54 @@
+<script src="assets/jquery-latest.js"></script>
+<script src="assets/jquery.cookie.js"></script>
+<script src="../src/jquery.activecookie.js"></script>
+
+<style>
+	.needDrugs{
+		display: block;
+		width: 150px;
+		height: 150px;
+		margin: 30px;
+		float: left;
+		background-color: #abcdef;
+	}
+	.active{
+		background-color: #fedcba;
+	}
+	.control{
+		clear: both;
+	}
+</style>
+
+<div class="needDrugs" data-cookie="cookiemonster" data-when="eat">
+	cookiemonster<br/>
+	<b>actives with eat</b>
+</div>
+<div class="needDrugs" data-cookie="bigbird" data-when="big">
+	bigbird<br/>
+	<b>actives with big</b>
+</div>
+<div class="needDrugs" data-cookie="ernie" data-when="0_0">
+	ernie<br/>
+	<b>actives with 0_0</b>
+</div>
+
+<div class="control">
+	cookiemonster: <input type="text" id="box1" value="eat"><br/>
+	bigbird: <input type="text" id="box2" value="not big"><br/>
+	ernie: <input type="text" id="box3" value="0_0"><br/>
+	<button id="btn1" type="button">set</button>
+	<button id="btn2" type="button">activate</button>
+</div>
+
+<script>
+	$("#btn1").click(function(){
+		$.cookie("cookiemonster",$("#box1").val());
+		$.cookie("bigbird",$("#box2").val());
+		$.cookie("ernie",$("#box3").val());
+	});
+
+	$("#btn2").click(function(){
+		$(".active").removeClass("active");
+		$(".needDrugs").activecookie();
+	});
+</script>
