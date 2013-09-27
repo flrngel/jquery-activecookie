@@ -13,9 +13,10 @@
 		},options);
 
 		this.each(function(){
-			var ori=$(this).attr(settings.attr);
-			var cmp=$.cookie($(this).attr(settings.cookieName));
-			if( ori == cmp ){
+			var ori=$.cookie($(this).attr(settings.cookieName));
+			var cmp=$(this).attr(settings.attr);
+			var grep=ori.match(new RegExp(cmp));
+			if( grep ){
 				$(this).addClass(settings.class);
 			}
 		});
