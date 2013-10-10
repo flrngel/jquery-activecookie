@@ -33,7 +33,7 @@ see more on example folder.
 
 cookieName: name of the cookie to comapre with.
 
-class: class name to add when cookie`s value matches with attr.
+className: class name to add when cookie`s value matches with attr.
 
 attr: attribute name for cookie.
 
